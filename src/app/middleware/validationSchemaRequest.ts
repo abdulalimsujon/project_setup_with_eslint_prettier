@@ -1,16 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Request, Response } from 'express';
 import { AnyZodObject } from 'zod';
 import catchAsync from '../utilities/catchAsync';
 
-const validataRequest = (schema: AnyZodObject) => {
+export const validateRequest = (schema: AnyZodObject) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    await schema.parseAsync({
-      body: req.body.body,
-      cookies: req.cookies,
-    });
+    await schema.parseAsync(req.body);
 
     next();
   });
 };
-
-export default validataRequest;
