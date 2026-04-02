@@ -1,4 +1,4 @@
-import express from 'express';
+;;;import express from 'express';
 import { userRoute } from '../modules/user/user.route';
 import { authRoutes } from '../modules/auth/auth.route';
 
